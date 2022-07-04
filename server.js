@@ -2,10 +2,11 @@ const http = require('http')
 const dataBase = require('./api')
 
 const server = http.createServer((req, res) => {
+    console.log(req.url)
+    console.log(req.method)
     res.writeHead(200)
-    res.end( {message: 'Deu certo?'})
+    res.end(JSON.stringify(dataBase))
 })
 
-server.listen(3001, "My first Server", () => console.log('Meu primeiro servidor está rodando na porta 3001'))
-
+server.listen(3001, () => console.log('Meu primeiro servidor está rodando na porta 3001'))
 
